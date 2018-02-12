@@ -22,7 +22,7 @@ export default class App extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Title>HackOMania Project Submissions</Title>
+            <Title>HackOMania2018</Title>
           </Body>
           <Right />
         </Header>
