@@ -53,21 +53,17 @@ export default class App extends React.Component {
 
   sideMenu() {
     return (
-      <Container>
-        <Content>
-          <List>
-            <ListItem>
-              <Text>Sponsors</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Judges Bio</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Project Submission</Text>
-            </ListItem>
-          </List>
-        </Content>
-      </Container>
+      <List>
+        <ListItem>
+          <Text>Sponsors</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Judges Bio</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Project Submission</Text>
+        </ListItem>
+      </List>
     );
   }
 }
