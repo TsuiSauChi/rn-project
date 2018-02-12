@@ -1,6 +1,7 @@
 import React from 'react';
 // import { StyleSheet, Text, View } from 'react-native';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import Expo from "expo";
 
 export default class App extends React.Component {
 
@@ -56,13 +57,13 @@ export default class App extends React.Component {
         <Content>
           <List>
             <ListItem>
-              <Text>Simon Mignolet</Text>
+              <Text>Sponsors</Text>
             </ListItem>
             <ListItem>
-              <Text>Nathaniel Clyne</Text>
+              <Text>Judges Bio</Text>
             </ListItem>
             <ListItem>
-              <Text>Dejan Lovren</Text>
+              <Text>Project Submission</Text>
             </ListItem>
           </List>
         </Content>
