@@ -5,8 +5,8 @@ import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Rig
 
 export default class App extends React.Component {
 
-  async componentWillMount() {
-    await Expo.Font.loadAsync({
+  componentWillMount() {
+    Expo.Font.loadAsync({
       'Roboto': require('native-base/Fonts/Roboto.ttf'),
       'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
     });
@@ -45,7 +45,6 @@ export default class App extends React.Component {
   sideMenu() {
     return (
       <Container>
-        <Header />
         <Content>
           <List>
             <ListItem>
@@ -62,8 +61,6 @@ export default class App extends React.Component {
       </Container>
     );
   }
-
-
 }
 
 /*
