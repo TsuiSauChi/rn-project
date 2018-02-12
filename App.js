@@ -1,18 +1,26 @@
 import React from 'react';
 // import { StyleSheet, Text, View } from 'react-native';
-// import fontImport from "./src/fonts.js";
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 
 export default class App extends React.Component {
 
-  componentWillMount() {
-    Expo.Font.loadAsync({
+  constructor(props) {
+    super(props);
+    this.state = { loading: true };
+  }
+
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
       'Roboto': require('native-base/Fonts/Roboto.ttf'),
       'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
     });
+    this.setState({ loading: false });
   }
 
   render() {
+    if (this.setState.loading) {
+      return <Expo.AppLoading />;
+    }
     return (
       <Container>
         <Header>
@@ -34,7 +42,7 @@ export default class App extends React.Component {
         <Footer>
           <FooterTab>
             <Button full>
-              <Text>Footer</Text>
+              <Text>Submit</Text>
             </Button>
           </FooterTab>
         </Footer>
