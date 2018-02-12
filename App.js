@@ -17,7 +17,7 @@ export default class App extends React.Component {
       <Container>
         <Header>
           <Left>
-            <Button transparent>
+            <Button onclick="sideMenu()" transparent>
               <Icon name='menu' />
             </Button>
           </Left>
@@ -41,6 +41,29 @@ export default class App extends React.Component {
       </Container>
     );
   }
+
+  sideMenu() {
+    return (
+      <Container>
+        <Header />
+        <Content>
+          <List>
+            <ListItem>
+              <Text>Simon Mignolet</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Nathaniel Clyne</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Dejan Lovren</Text>
+            </ListItem>
+          </List>
+        </Content>
+      </Container>
+    );
+  }
+
+
 }
 
 /*
