@@ -13,13 +13,13 @@ export default class App extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Title>Header</Title>
+            <Title>HackOMania Project Submissions</Title>
           </Body>
           <Right />
         </Header>
         <Content>
           <Text>
-            This is Content Section
+            This is a test
           </Text>
         </Content>
         <Footer>
