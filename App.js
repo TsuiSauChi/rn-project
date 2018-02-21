@@ -75,8 +75,8 @@ export default class App extends React.Component {
       this.state.challengeValue +
       '&opensource=testSource';
 
-    //Alert.alert(data);
-/*
+    const parseString = require('react-native-xml2js').parseString;
+
     fetch(
       'http://hackomania.geekshacking.com/Admin/public/webservices/Hackomania/Hackomania.asmx/updateProject',
       {
@@ -87,13 +87,16 @@ export default class App extends React.Component {
         body: data,
       }
     )
-      .then(function (response) {
-        Alert.alert(response.toString());
+      .then(response => response.text())
+      .then((response) => {
+        parseString(response, function (err, result) {
+          console.log(response)
+        });
       })
       .catch(error => {
         Alert.alert(error);
       });
-    */
+    /*
     fetch(
       'http://hackomania.geekshacking.com/Admin/public/webservices/Hackomania/Hackomania.asmx/updateProject',
       {
@@ -101,7 +104,7 @@ export default class App extends React.Component {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: data, //'teamID=1435&name=ts&description=qwe&youtubeUrl=qweqwe&challenge=qwewqe&opensource=123',
+        body: 'teamID=1435&name=ts&description=qwe&youtubeUrl=qweqwe&challenge=qwewqe&opensource=123',
       }
     )
       .then(response => response.text())
@@ -111,7 +114,7 @@ export default class App extends React.Component {
       .catch(error => {
         Alert.alert(error);
       });
-
+*/
 
   }
 
