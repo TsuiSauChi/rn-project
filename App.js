@@ -90,7 +90,15 @@ export default class App extends React.Component {
       .then(response => response.text())
       .then((response) => {
         parseString(response, function (err, result) {
-          console.log(response)
+          var i = response.search("success");
+          console.log(i);
+          console.log(response.charAt(i+9));
+          console.log(response);
+          if (response.charAt(i+9)==1) {
+            Alert.alert("Project Successfully Uploaded!");
+          } else {
+            Alert.alert("Please try again");
+          }
         });
       })
       .catch(error => {
