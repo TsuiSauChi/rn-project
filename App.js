@@ -38,32 +38,8 @@ export default class App extends React.Component {
       this.state.urlValue.length;**/
     //Alert.alert('Total Length is : ' + totalLength);
 
-    /** Alert.alert('xxxx');
-    const response = await fetch(
-      'http://hackomania.geekshacking.com/Admin/public/webservices/Hackomania/Hackomania.asmx/updateProject',
-      {
-        method: 'POST',
-        headers: {
-          Accept: 'application/x-www-form-urlencoded',
-          'Content-Length': totalLength,
-        },
-        body: {
-          teamID: this.state.teamNameValue,
-          name: this.state.projectNameValue,
-          description: this.state.projectDescriptionValue,
-          youtubeUrl: this.state.urlValue,
-          challenge: this.state.challengeValue,
-          opensource: 'testSource',
-        },
-      }
-    );
-    Alert.alert(response);
-    // } catch (error) {
-    //  Alert.alert(error);
-    //  }*/
-
     var data =
-      'teamID=' +
+      'teamName=' +
       this.state.teamNameValue +
       '&name=' +
       this.state.projectNameValue +
@@ -72,8 +48,7 @@ export default class App extends React.Component {
       '&youtubeUrl=' +
       this.state.urlValue +
       '&challenge=' +
-      this.state.challengeValue +
-      '&opensource=testSource';
+      this.state.challengeValue;
 
     const parseString = require('react-native-xml2js').parseString;
 
@@ -104,26 +79,6 @@ export default class App extends React.Component {
       .catch(error => {
         Alert.alert(error);
       });
-    /*
-    fetch(
-      'http://hackomania.geekshacking.com/Admin/public/webservices/Hackomania/Hackomania.asmx/updateProject',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'teamID=1435&name=ts&description=qwe&youtubeUrl=qweqwe&challenge=qwewqe&opensource=123',
-      }
-    )
-      .then(response => response.text())
-      .then(returnValue => {
-        this.setState({ returnValue });
-      })
-      .catch(error => {
-        Alert.alert(error);
-      });
-*/
-
   }
 
   render() {
