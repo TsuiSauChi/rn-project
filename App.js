@@ -27,7 +27,7 @@ export default class App extends React.Component {
     this.setState({ loading: false });
   }
 
-  async restPost() {
+  restPost() {
 
     /**
     let totalLength =
@@ -67,9 +67,9 @@ export default class App extends React.Component {
         parseString(response, function (err, result) {
           var i = response.search("success");
           console.log(i);
-          console.log(response.charAt(i+9));
+          console.log(response.charAt(i + 9));
           console.log(response);
-          if (response.charAt(i+9)==1) {
+          if (response.charAt(i + 9) == 1) {
             Alert.alert("Project Successfully Uploaded!");
           } else {
             Alert.alert("Please try again");
@@ -99,7 +99,7 @@ export default class App extends React.Component {
           <Right />
         </Header>
         <Content>
-          <Form>
+          <Form style={{paddingBottom:25}}>
             <Item floatingLabel>
               <Label>Team Name</Label>
               <Input
@@ -132,15 +132,11 @@ export default class App extends React.Component {
               <Input onChangeText={urlValue => this.setState({ urlValue })} />
             </Item>
           </Form>
+          <Button onPress={this.restPost.bind(this)} primary full style={{width: '90%', alignSelf:'center'}}>
+              <Text> Submit Project </Text>
+          </Button>
         </Content>
-        <Footer>
-          <FooterTab>
-            <Button onPress={this.restPost.bind(this)} full>
-              <Text>Submit</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
-      </Container>
+      </Container >
     );
   }
 
