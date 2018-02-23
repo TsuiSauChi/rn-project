@@ -1,6 +1,6 @@
 import React from 'react';
 // import { StyleSheet, Text, View } from 'react-native';
-import { Container, Form, Item, Label, Input, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import { Container, Form, Item, Label, Input, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Picker } from 'native-base';
 import Expo from "expo";
 import { Alert } from 'react-native';
 
@@ -15,6 +15,7 @@ export default class App extends React.Component {
       challengeValue: '',
       projectDescriptionValue: '',
       urlValue: '',
+      pickerState: 'key0',
     };
   }
 
@@ -27,17 +28,24 @@ export default class App extends React.Component {
     this.setState({ loading: false });
   }
 
+  onValueChange2(value) {
+    this.setState({
+      pickerState: value,
+    });
+  }
+
   restPost() {
 
-    /**
-    let totalLength =
-      this.state.teamNameValue.length +
-      this.state.projectNameValue.length +
-      this.state.challengeValue.length +
-      this.state.projectDescriptionValue.length +
-      this.state.urlValue.length;**/
-    //Alert.alert('Total Length is : ' + totalLength);
+    console.log("PickerState" + this.state.pickerState);
+    if (this.state.pickerState == 'key0') {
+      this.setState({ challengeValue: "SGInnovate Deep Tech Challenge" });
+    } else if (this.state.pickerState == 'key1') {
+      this.setState({ challengeValue: "IoT for Smart Homes Challenge" });
+    } else if (this.state.pickerState == 'key2') {
+      this.setState({ challengeValue: "Smart Homes for the Elderly" });
+    }
 
+    console.log("Challenge Value" + this.state.challengeValue);
     var data =
       'teamName=' +
       this.state.teamNameValue +
@@ -99,7 +107,7 @@ export default class App extends React.Component {
           <Right />
         </Header>
         <Content>
-          <Form style={{paddingBottom:25}}>
+          <Form style={{ paddingBottom: 25 }}>
             <Item floatingLabel>
               <Label>Team Name</Label>
               <Input
@@ -114,13 +122,6 @@ export default class App extends React.Component {
               />
             </Item>
             <Item floatingLabel>
-              <Label>Which Challenge does your project address? </Label>
-              <Input
-                onChangeText={challengeValue =>
-                  this.setState({ challengeValue })}
-              />
-            </Item>
-            <Item floatingLabel>
               <Label>Project Description</Label>
               <Input
                 onChangeText={projectDescriptionValue =>
@@ -131,9 +132,21 @@ export default class App extends React.Component {
               <Label>Enter Project Video URL</Label>
               <Input onChangeText={urlValue => this.setState({ urlValue })} />
             </Item>
+            <Label style={{ alignSelf: 'center', paddingTop: 15 }}>Challenge Being Addressed</Label>
+            <Picker
+              style={{ alignItems: 'center' }}
+              mode="dropdown"
+              placeholder="Tap to Choose Challenge"
+              selectedValue={this.state.pickerState}
+              onValueChange={this.onValueChange2.bind(this)}
+            >
+              <Picker.Item label="SGInnovate Deep Tech Challenge" value="key0" />
+              <Picker.Item label="IoT for Smart Homes Challenge" value="key1" />
+              <Picker.Item label="Smart Homes for the Elderly" value="key2" />
+            </Picker>
           </Form>
-          <Button onPress={this.restPost.bind(this)} primary full style={{width: '90%', alignSelf:'center'}}>
-              <Text> Submit Project </Text>
+          <Button block onPress={this.restPost.bind(this)} primary style={{ width: '90%', alignSelf: 'center' }}>
+            <Text> Submit Project </Text>
           </Button>
         </Content>
       </Container >
@@ -141,3 +154,12 @@ export default class App extends React.Component {
   }
 
 }
+/*
+            <Item floatingLabel>
+              <Label>Which Challenge does your project address? </Label>
+              <Input
+                onChangeText={challengeValue =>
+                  this.setState({ challengeValue })}
+              />
+            </Item>
+              */
